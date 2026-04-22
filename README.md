@@ -1,7 +1,7 @@
 # AI-Email-Assistant-n8n-Automation
 An intelligent email assistant that writes clear, professional emails on demand — cutting email composition time by 80% while maintaining the right tone for every situation.
 
-## 🎯 The Problem: Business Professionals Waste 10+ Hours/Week on Email
+## The Problem: Business Professionals Waste 10+ Hours/Week on Email
 
 The average professional spends **28% of their workweek on email** — that's over 11 hours. The biggest time sinks aren't reading emails. They're **writing, rephrasing, and second-guessing tone**.
 
@@ -31,9 +31,10 @@ No staring at a blank cursor. No tone anxiety. No missing subject lines.
 ## How It Works
 
 ### | .............User says........ | ............Assistant delivers................ |
-| "Email Sarah about the late report" | Professional, direct email with clear ask |
-| "Politely follow up with James from last week's demo" | Warm, pressure-free follow-up |
-| "Cancel Friday's meeting with the design team" | Clear cancellation + alternative suggestion |
+
+-  "Email Sarah about the late report"  - Professional, direct email with clear ask
+-   Politely follow up with James from last week's demo" - Warm, pressure-free follow-up
+-   "Cancel Friday's meeting with the design team" | Clear cancellation + alternative suggestion 
 
 ## Built-In Email Rules
 
@@ -47,7 +48,8 @@ No staring at a blank cursor. No tone anxiety. No missing subject lines.
 ## Tech Stack
 
 ### | Tool | Purpose |
-| n8n (self-hosted) | Workflow orchestration |
-| OpenAI API | Email generation |
-| Gmail API | Sending emails (optional) |
-| Webhook | User input interface |
+
+- n8n (self-hosted): Workflow orchestration
+- OpenAI API: Email generation
+- Gmail API: Sending emails 
+- Webhook: User input interface 
