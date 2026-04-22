@@ -1,6 +1,8 @@
 # AI-Email-Assistant-n8n-Automation
 An intelligent email assistant that writes clear, professional emails on demand — cutting email composition time by 80% while maintaining the right tone for every situation.
 
+<img width="1912" height="891" alt="n8n email assistant" src="https://github.com/user-attachments/assets/e570e503-1102-4012-aff8-eb46e09fd566" />
+
 ## The Problem: Business Professionals Waste 10+ Hours/Week on Email
 
 The average professional spends **28% of their workweek on email** — that's over 11 hours. The biggest time sinks aren't reading emails. They're **writing, rephrasing, and second-guessing tone**.
