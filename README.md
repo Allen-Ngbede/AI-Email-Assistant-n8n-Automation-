@@ -15,7 +15,7 @@ Here's what actually happens:
 
 For founders, salespeople, and managers, this adds up to **hours of friction every single day**. The cost? Delayed deals, miscommunication, and mental drain from repetitive cognitive load.
 
-## 🔧 The Solution: An AI Email Assistant That Removes the Friction
+## The Solution: An AI Email Assistant That Removes the Friction
 
 This n8n automation acts as a dedicated email writer. You give a simple prompt — *"Email John about rescheduling"* — and it returns a complete, professional draft in seconds.
 
@@ -30,8 +30,7 @@ No staring at a blank cursor. No tone anxiety. No missing subject lines.
 
 ## How It Works
 
-### | .............User says............. | ..............Assistant delivers................... |
-|--------------|----------------------|
+### | .............User says........ | ............Assistant delivers................ |
 | "Email Sarah about the late report" | Professional, direct email with clear ask |
 | "Politely follow up with James from last week's demo" | Warm, pressure-free follow-up |
 | "Cancel Friday's meeting with the design team" | Clear cancellation + alternative suggestion |
@@ -48,7 +47,6 @@ No staring at a blank cursor. No tone anxiety. No missing subject lines.
 ## Tech Stack
 
 ### | Tool | Purpose |
-|------|---------|
 | n8n (self-hosted) | Workflow orchestration |
 | OpenAI API | Email generation |
 | Gmail API | Sending emails (optional) |
