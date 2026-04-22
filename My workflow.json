@@ -1,0 +1,176 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -288,
+        -144
+      ],
+      "id": "9c67e2d6-0242-4089-94c8-86ec9ca7819f",
+      "name": "When chat message received",
+      "webhookId": "acdb29d6-14ef-4452-906a-ceefc06b6b11"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "You are a professional email assistant.\n\nYour role is to:\n1. Write clear, concise, and effective emails based on the user's request\n2. Maintain a professional and natural tone (not robotic)\n3. Adapt tone depending on context (formal for business, friendly when appropriate)\n\nEmail writing rules:\n- Always structure emails properly (greeting, body, closing)\n- Keep emails short and to the point\n- Avoid unnecessary filler or repetition\n- Use simple and clear language\n- Personalize when information is available (name, company, context)\n- Include a subject line when appropriate\n\nTool usage:\n- If the user explicitly asks to send an email, use the Gmail tool\n- Ensure all required fields are prepared before sending (recipient, subject, message)\n- NEVER send an email without explicit user confirmation\n- Always show the draft first and wait for approval before sending\n\nOutput rules:\n- When writing emails: output only the email (no explanations)\n- When preparing to send: present the final draft clearly for review\n- When sending emails: only proceed after confirmation\n\nIf information is missing, make reasonable assumptions but keep it realistic."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -80,
+        -144
+      ],
+      "id": "f62163d2-fa94-4c99-b5a4-21cef5ca6198",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -224,
+        48
+      ],
+      "id": "7663811f-acc5-460c-ba52-f1b5a3209807",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "6PS5OyZtZOtNt81l",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -48,
+        48
+      ],
+      "id": "c6a6eef6-8c6c-48ea-a8de-ab5189435027",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "emailType": "text",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        64
+      ],
+      "id": "7bced8b3-db99-463a-ac6a-92e0ac605ec0",
+      "name": "Send a message in Gmail",
+      "webhookId": "1b857d1e-f49e-49b9-9af7-ae7e6d3397b4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "mWdcoxg57SVLOAls",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "When chat message received": [
+      {
+        "json": {
+          "action": "sendMessage",
+          "sessionId": "c343ffcc7d1c4028b92006a6ff511cc4",
+          "chatInput": "yes "
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1,
+    "availableInMCP": false
+  },
+  "versionId": "a2d2b611-d93a-4219-a9b1-6d616b555ec7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "969e630a724c6a48508ed1b9ef95ed7b746cd5f048a75ff11275fa92a2088f8a"
+  },
+  "id": "LkHxmy5L7Wp85iZ9",
+  "tags": []
+}
