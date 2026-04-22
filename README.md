@@ -49,7 +49,7 @@ No staring at a blank cursor. No tone anxiety. No missing subject lines.
 
 ### | Tool | Purpose |
 
-- n8n (self-hosted): Workflow orchestration
+- n8n: Workflow orchestration
 - OpenAI API: Email generation
 - Gmail API: Sending emails 
 - Webhook: User input interface 
